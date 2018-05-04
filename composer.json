@@ -7,6 +7,7 @@
         "push-notifications",
         "notification",
         "push",
+        "beams",
         "neo"
     ],
     "license": "MIT",
