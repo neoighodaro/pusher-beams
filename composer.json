@@ -1,0 +1,40 @@
+{
+    "name": "neo/pusher-beams",
+    "description": "Pusher Beams is a push notification service from Pusher.",
+    "license": "MIT",
+    "homepage": "https://github.com/neoighodaro/pusher-beams",
+    "authors": [
+        {
+            "name": "Neo Ighodaro",
+            "email": "neo@creativitykills.co"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "illuminate/events": "5.3.* || 5.4.* || 5.5.* || 5.6.*",
+        "illuminate/notifications": "5.3.* || 5.4.* || 5.5.* || 5.6.*",
+        "illuminate/queue": "5.3.* || 5.4.* || 5.5.* || 5.6.*",
+        "illuminate/support": "5.3.* || 5.4.* || 5.5.* || 5.6.*",
+        "pusher/pusher-push-notifications": "^0.10.6"
+    },
+    "require-dev": {
+        "mockery/mockery": "^0.9.5",
+        "phpunit/phpunit": "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Neo\\PusherBeams\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Neo\\PusherBeams\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
