@@ -37,8 +37,12 @@ class PusherBeams
      */
     public function send($notifiable, Notification $notification)
     {
-        $interest = $notifiable->routeNotificationFor('PusherBeams')
-            ?: $this->interestName($notifiable);
+        if (method_exists($notification, 'pushNotificationInterest')) {
+            $interest = $notification->pushNotificationInterest();
+        } else {
+            $interest = $notifiable->routeNotificationFor('PusherBeams')
+                ?: $this->interestName($notifiable);
+        }
 
         if (is_string($interest)) {
             $interest = [$interest];
