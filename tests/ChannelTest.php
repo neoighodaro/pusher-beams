@@ -43,7 +43,7 @@ class ChannelTest extends PHPUnit_Framework_TestCase
     {
         $message = $this->notification->toPushNotification($this->notifiable);
         $data = $message->toArray();
-        $this->beams->shouldReceive('publish')->with(['interest_name'], $data)->andReturn(['status' => 500]);
+        $this->beams->shouldReceive('publish')->with(['interest_name'], $data)->andReturn([]);
         $this->events->shouldReceive('fire')->with(Mockery::type(NotificationFailed::class));
         $this->channel->send($this->notifiable, $this->notification);
     }
