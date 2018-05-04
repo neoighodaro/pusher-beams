@@ -1,6 +1,5 @@
 # Pusher Beams - push notifications for Laravel
 
-[![PHP from Packagist](https://img.shields.io/packagist/v/neo/pusher-beams.svg)](https://packagist.org/packages/neo/pusher-beams)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/neo/pusher-beams.svg?style=flat-square)](https://packagist.org/packages/neo/pusher-beams)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/neoighodaro/pusher-beams/master.svg?style=flat-square)](https://travis-ci.org/neoighodaro/pusher-beams)
