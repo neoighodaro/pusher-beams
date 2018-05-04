@@ -3,9 +3,9 @@
 namespace Neo\PusherBeams;
 
 use Illuminate\Events\Dispatcher;
+use Illuminate\Notifications\Events\NotificationFailed;
 use Illuminate\Notifications\Notification;
 use Pusher\PushNotifications\PushNotifications;
-use Illuminate\Notifications\Events\NotificationFailed;
 
 class PusherBeams
 {
@@ -32,7 +32,7 @@ class PusherBeams
     /**
      * Send the given notification.
      *
-     * @param mixed $notificable
+     * @param mixed $notifiable
      * @param \Illuminate\Notifications\Notification $notification
      */
     public function send($notifiable, Notification $notification)
