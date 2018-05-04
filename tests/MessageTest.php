@@ -3,11 +3,11 @@
 namespace Neo\PusherBeams\Test;
 
 use Illuminate\Support\Arr;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Neo\PusherBeams\PusherMessage;
 use Neo\PusherBeams\Exceptions\CouldNotCreateMessage;
 
-class MessageTest extends PHPUnit_Framework_TestCase
+class MessageTest extends TestCase
 {
     /** @var \Neo\PusherBeams\PusherMessage */
     protected $message;
@@ -37,7 +37,7 @@ class MessageTest extends PHPUnit_Framework_TestCase
     public function by_default_it_will_send_a_message_to_ios()
     {
         $this->assertTrue(Arr::has($this->message->toArray(), 'apns'));
-        $this->assertFalse(Arr::has($this->message->toArray(), 'gcm'));
+        $this->assertFalse(Arr::has($this->message->toArray(), 'fcm'));
     }
 
     /** @test */
@@ -45,9 +45,9 @@ class MessageTest extends PHPUnit_Framework_TestCase
     {
         $this->message->ios();
         $this->assertTrue(Arr::has($this->message->toArray(), 'apns'));
-        $this->assertFalse(Arr::has($this->message->toArray(), 'gcm'));
+        $this->assertFalse(Arr::has($this->message->toArray(), 'fcm'));
         $this->message->android();
-        $this->assertTrue(Arr::has($this->message->toArray(), 'gcm'));
+        $this->assertTrue(Arr::has($this->message->toArray(), 'fcm'));
         $this->assertFalse(Arr::has($this->message->toArray(), 'apns'));
     }
 
@@ -62,7 +62,7 @@ class MessageTest extends PHPUnit_Framework_TestCase
     {
         $this->message->title('myTitle');
         $this->assertEquals('myTitle', Arr::get($this->message->toiOS(), 'apns.aps.alert.title'));
-        $this->assertEquals('myTitle', Arr::get($this->message->toAndroid(), 'gcm.notification.title'));
+        $this->assertEquals('myTitle', Arr::get($this->message->toAndroid(), 'fcm.notification.title'));
     }
 
     /** @test */
@@ -70,7 +70,7 @@ class MessageTest extends PHPUnit_Framework_TestCase
     {
         $this->message->body('myBody');
         $this->assertEquals('myBody', Arr::get($this->message->toiOS(), 'apns.aps.alert.body'));
-        $this->assertEquals('myBody', Arr::get($this->message->toAndroid(), 'gcm.notification.body'));
+        $this->assertEquals('myBody', Arr::get($this->message->toAndroid(), 'fcm.notification.body'));
     }
 
     /** @test */
@@ -78,7 +78,7 @@ class MessageTest extends PHPUnit_Framework_TestCase
     {
         $this->message->sound('mySound');
         $this->assertEquals('mySound', Arr::get($this->message->toiOS(), 'apns.aps.sound'));
-        $this->assertEquals('mySound', Arr::get($this->message->toAndroid(), 'gcm.notification.sound'));
+        $this->assertEquals('mySound', Arr::get($this->message->toAndroid(), 'fcm.notification.sound'));
     }
 
     /** @test */
@@ -92,13 +92,13 @@ class MessageTest extends PHPUnit_Framework_TestCase
     public function it_can_set_the_icon()
     {
         $this->message->icon('myIcon');
-        $this->assertEquals('myIcon', Arr::get($this->message->toAndroid(), 'gcm.notification.icon'));
+        $this->assertEquals('myIcon', Arr::get($this->message->toAndroid(), 'fcm.notification.icon'));
     }
 
     /** @test */
     public function it_will_throw_an_exception_when_an_unsupported_platform_is_used()
     {
-        $this->setExpectedException(CouldNotCreateMessage::class);
+        $this->expectException(CouldNotCreateMessage::class);
         $this->message->platform('bla bla');
     }
 
@@ -107,6 +107,6 @@ class MessageTest extends PHPUnit_Framework_TestCase
     {
         $this->message->ios()->withAndroid(new PusherMessage());
         $this->assertTrue(Arr::has($this->message->toArray(), 'apns'));
-        $this->assertTrue(Arr::has($this->message->toArray(), 'gcm'));
+        $this->assertTrue(Arr::has($this->message->toArray(), 'fcm'));
     }
 }

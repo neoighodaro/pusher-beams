@@ -40,14 +40,18 @@ class PusherBeams
         $interest = $notifiable->routeNotificationFor('PusherBeams')
             ?: $this->interestName($notifiable);
 
-        $response = $this->beams->publish(
-            [$interest],
-            $notification->toPushNotification($notifiable)->toArray()
-        );
+        if (is_string($interest)) {
+            $interest = [$interest];
+        }
 
-        if (!array_get($response, 'publishId')) {
+        try {
+            $response = $this->beams->publish(
+                $interest,
+                $notification->toPushNotification($notifiable)->toArray()
+            );
+        } catch (\Exception $e) {
             $this->events->fire(
-                new NotificationFailed($notifiable, $notification, 'pusher-beams', $response)
+                new NotificationFailed($notifiable, $notification, 'pusher-beams')
             );
         }
     }

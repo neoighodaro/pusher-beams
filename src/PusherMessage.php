@@ -297,12 +297,12 @@ class PusherMessage
     public function toAndroid()
     {
         $message = [
-            'gcm' => [
+            'fcm' => [
                 'notification' => [
                     'title' => $this->title,
                     'body' => $this->body,
                     'sound' => $this->sound,
-                    'icon' => $this->icon,
+                    'icon' => $this->icon ?: 'icon',
                 ],
             ],
         ];
