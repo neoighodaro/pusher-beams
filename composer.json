@@ -34,6 +34,13 @@
     "scripts": {
         "test": "vendor/bin/phpunit"
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Neo\\PusherBeams\\PusherBeamsServiceProvider"
+            ]
+        }
+    },
     "config": {
         "sort-packages": true
     }
