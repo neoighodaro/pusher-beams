@@ -3,6 +3,10 @@
     "description": "Pusher Beams is a push notification service from Pusher.",
     "license": "MIT",
     "homepage": "https://github.com/neoighodaro/pusher-beams",
+    "support": {
+        "issues": "https://github.com/neoighodaro/pusher-beams/issues",
+        "source": "https://github.com/neoighodaro/pusher-beams"
+    },
     "authors": [
         {
             "name": "Neo Ighodaro",
