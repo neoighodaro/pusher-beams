@@ -45,7 +45,7 @@ class PusherBeams
             $notification->toPushNotification($notifiable)->toArray()
         );
 
-        if (array_get($response, 'publishId')) {
+        if (!array_get($response, 'publishId')) {
             $this->events->fire(
                 new NotificationFailed($notifiable, $notification, 'pusher-beams', $response)
             );
