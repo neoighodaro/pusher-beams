@@ -15,8 +15,8 @@ class PusherBeamsServiceProvider extends ServiceProvider
                 $pusherConfig = config('broadcasting.connections.pusher');
 
                 return new PushNotifications([
-                    'secretKey' => array_get($pusherConfig, 'beams_secret_key'),
-                    'instanceId' => array_get($pusherConfig, 'beams_instance_id'),
+                    'secretKey' => array_get($pusherConfig, 'beams.secret_key'),
+                    'instanceId' => array_get($pusherConfig, 'beams.instance_id'),
                 ]);
             });
     }
