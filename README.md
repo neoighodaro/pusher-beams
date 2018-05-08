@@ -9,7 +9,7 @@
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/neoighodaro/pusher-beams/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/neoighodaro/pusher-beams/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/neoighodaro/pusher-beams.svg?style=flat-square)](https://packagist.org/packages/neoighodaro/pusher-beams)
 
-This package makes it easy to send [Pusher push notifications](https://docs.pusher.com/push-notifications) with Laravel (should work with other non-laravel PHP projects). It's based off [this package](https://github.com/laravel-notification-channels/pusher-push-notifications) by Them Said.
+This package makes it easy to send [Pusher push notifications](https://docs.pusher.com/push-notifications) with Laravel (should work with other non-laravel PHP projects). It's based off [this package](https://github.com/laravel-notification-channels/pusher-push-notifications) by Mohamed Said.
 
 ## Contents
 
@@ -69,7 +69,8 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
 
-- [Mohamed Said](https://github.com/neoighodaro)
+- [Neo Ighodaro](https://github.com/neoighodaro)
+- Mohamed Said
 - [All Contributors](../../contributors)
 
 ## License
