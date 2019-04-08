@@ -49,7 +49,7 @@ class PusherBeams
         }
 
         try {
-            $response = $this->beams->publish(
+            $response = $this->beams->publishToInterests(
                 $interest,
                 $notification->toPushNotification($notifiable)->toArray()
             );
