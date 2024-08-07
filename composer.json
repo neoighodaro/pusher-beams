@@ -1,5 +1,5 @@
 {
-    "name": "neo/pusher-beams",
+    "name": "mchumer/pusher-beams",
     "description": "Pusher Beams is a push notification service from Pusher.",
     "keywords": [
         "laravel",
@@ -20,6 +20,10 @@
         {
             "name": "Neo Ighodaro",
             "email": "neo@creativitykills.co"
+        },
+        {
+            "name": "Marcelo B Chumer",
+            "email": "mchumer@clearcodex.com.br"
         }
     ],
     "require": {
